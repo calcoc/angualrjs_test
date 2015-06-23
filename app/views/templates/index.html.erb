@@ -7,24 +7,24 @@
       <span>{{list.name}}</span>
     </div>
 
-    <form id="new_todo">
+    <form id="new_todo" ng-submit="addTodo(todoDescription)">
       <div class="input-group">
-        <input type="text" id="todoDescription" class="form-control input-lg" autofocus="autofocus" maxlength="255">
+        <input type="text" id="todoDescription" class="form-control input-lg" autofocus="autofocus" maxlength="255" ng-model="todoDescription">
         <button class="btn btn-success btn-lg" type="submit">追加</button>
       </div>
     </form>
 
     <ul class="list-group">
     <!--ng-repeatは繰り返しの回数＝todoの回数分-->
-      <li class="list-group-item" ng-repeat="todo in list.todos">
+      <li class="list-group-item" ng-repeat="todo in list.todos" ng-class="{completed: todo.completed}">
         <div class="todo-completed">
-          <input type="checkbox">
+          <input type="checkbox" ng-model="todo.completed">
         </div>
         <div class="todo-description">
           <span>{{todo.description}}</span>
         </div>
         <div class="todo-buttons pull-right">
-          <button class="btn btn-danger btn-xs pull-right" type="button">
+          <button class="btn btn-danger btn-xs pull-right" type="button" ng-click="deleteTodo(todo)">
             <span class="glyphicon glyphicon-ban-circle"></span>
           </button>
         </div>
