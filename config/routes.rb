@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
+  get 'templates/index'
 
-  namespace :api, defaults: { format: :json } do
-    resources :todo_lists, only: [:index, :show, :create, :destroy ] do
+
+namespace :api, defaults: { format: :json } do
+    resources :todo_lists, only: :show do
       resources :todos, except: [:index, :new, :edit, :show]
     end
   end
-  get '/dashboard'      => 'templates#index'
-  get '/todo_lists/:id' => 'templates#index'
-  get '/templates/:path.html' => 'templates#template', constraints: { path: /.+/ }
-
-  root 'templates#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
