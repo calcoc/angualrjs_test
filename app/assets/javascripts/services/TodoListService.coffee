@@ -12,8 +12,7 @@ angular.module('sampleApp').factory 'TodoList', ($resource, $http) ->
     find: (id, successHandler) ->
       @service.get(id: id, ((list)->
         successHandler?(list)
-        list),
-        @errorHandler)
+        list),@errorHandler)
 
     create: (attrs) ->
       new @service(todo_list: attrs).$save ((list) -> attrs.id = list.id), @errorHandler

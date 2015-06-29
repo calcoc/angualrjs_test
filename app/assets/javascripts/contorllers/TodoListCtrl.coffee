@@ -1,5 +1,5 @@
 
-angular.module('sampleApp').controller "TodoListCtrl", ($scope,TodoList, Todo) ->
+angular.module('sampleApp').controller "TodoListCtrl", ($scope, TodoList, Todo) ->
 
   # 初期データを用意するメソッド
   $scope.init = ->
