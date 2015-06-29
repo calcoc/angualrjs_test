@@ -12,7 +12,6 @@ angular.module('sampleApp').factory 'Todo', ($resource, $http) ->
 
     delete: (todo) ->
       new @service().$delete { id: todo.id }, (-> null), @errorHandler
-
-
+    
     update: (todo, attrs) ->
       new @service(todo: attrs).$update { id: todo.id }, (-> null), @errorHandler
