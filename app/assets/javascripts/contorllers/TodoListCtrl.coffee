@@ -24,7 +24,7 @@ angular.module('sampleApp').controller "TodoListCtrl", ($scope, TodoList, Todo) 
     # todoをangularjsのlistデータから削除する(indexOfメソッドでtodoのindexを探し、spliceメソッドで削除する)
     $scope.list.todos.splice($scope.list.todos.indexOf(todo), 1)
 
-  $scope.updateTodo = (todo)->
+  $scope.toggleTodo = (todo)->
     @todoService.update(todo, completed: todo.completed)
 
   serverErrorHandler = ->
